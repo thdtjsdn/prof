@@ -58,12 +58,3 @@ suite.addBatch({
 });
 
 suite.export(module);
-
-// var snapshot  = profiler.takeSnapshot('test');
-// 
-// assert.equal(1, profiler.snapshotCount(), 'Shows correct amount of snapshots.');
-// assert.equal(profiler.findSnapshot(snapshot['uid'])['title'], snapshot['title'], 'Finds snapshot and retrieves it')
-// assert.equal(profiler.getSnapshot(1)['title'], snapshot['title'], 'Retrieves snapshots');
-// 
-// profiler.deleteAllSnapshots();
-// assert.equal(0, profiler.snapshotCount(), 'Deletes all snapshots');
