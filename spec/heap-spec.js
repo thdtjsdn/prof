@@ -1,3 +1,4 @@
+var fs      = require('fs');
 var vows    = require('vows');
 var assert  = require('assert');
 var heap    = require('../lib/heap');
@@ -49,10 +50,16 @@ suite.addBatch({
     'finds snapshot via *uid*': function(snapshot) {
       assert.equal(heap.findSnapshot(snapshot['uid'])['title'], snapshot['title']);
     },
+    'serializes as *json*': function(snapshot) {
+      snapshot.serialize('./spec/snapshot.json');
+    },
     'deletes all *snapshots*': function(snapshot) {
       heap.deleteAllSnapshots();
 
       assert.equal(heap.snapshotCount(), 0);
+    },
+    teardown: function(snapshot) {
+      fs.unlinkSync('./spec/snapshot.json');
     }
   }
 });

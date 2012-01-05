@@ -17,6 +17,6 @@ def build(ctx):
   t.source = """
     src/graph_edge.cc
     src/graph_node.cc
-    src/snapshot.cc
     src/profiler.cc
+    src/snapshot.cc
   """

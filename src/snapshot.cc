@@ -1,5 +1,31 @@
+#include <unistd.h>
 #include "snapshot.h"
 #include "graph_node.h"
+
+class FileOutputStream : public OutputStream {
+  private:
+    FILE *out;
+
+  public:
+    FileOutputStream(FILE *out) {
+      this->out = out;
+    }
+
+    void EndOfStream() {
+      fflush(out);
+    }
+
+    OutputStream::WriteResult WriteAsciiChunk(char *data, int size) {
+      int rv;
+
+      rv = write(fileno(out), data, size);
+
+      if (rv != size)
+        return OutputStream::kAbort;
+
+      return OutputStream::kContinue;
+    }
+};
 
 Persistent<ObjectTemplate> Snapshot::snapshot_template_;
 
@@ -9,6 +35,7 @@ void Snapshot::Initialize() {
   snapshot_template_->Set(String::New("delete"), FunctionTemplate::New(Snapshot::Delete));
   snapshot_template_->Set(String::New("getNode"), FunctionTemplate::New(Snapshot::GetNode));
   snapshot_template_->Set(String::New("getNodeById"), FunctionTemplate::New(Snapshot::GetNodeById));
+  snapshot_template_->Set(String::New("serialize"), FunctionTemplate::New(Snapshot::Serialize));
   snapshot_template_->SetAccessor(String::New("nodes"), Snapshot::GetNodesCount);
   snapshot_template_->SetAccessor(String::New("root"), Snapshot::GetRoot);
   snapshot_template_->SetAccessor(String::New("title"), Snapshot::GetTitle);
@@ -59,6 +86,26 @@ Handle<Value> Snapshot::GetNodeById(const Arguments& args) {
   return scope.Close(GraphNode::New(node));
 }
 
+Handle<Value> Snapshot::Serialize(const Arguments& args) {
+  HandleScope scope;
+  Handle<Object> self = args.This();
+  bool customFile = args[0]->IsString();
+  FILE *file = stdout;
+
+  if (customFile) {
+    String::AsciiValue fileName(args[0]);
+    file = fopen(*fileName, "w");
+  }
+
+  FileOutputStream *stream = new FileOutputStream(file);
+  void* ptr = self->GetPointerFromInternalField(0);
+  static_cast<HeapSnapshot*>(ptr)->Serialize(stream, HeapSnapshot::kJSON);
+
+  if (customFile) {
+    fclose(file);
+  }
+}
+
 Handle<Value> Snapshot::GetNodesCount(Local<String> property, const AccessorInfo& info) {
   HandleScope scope;
   Local<Object> self = info.Holder();
@@ -81,8 +128,10 @@ Handle<Value> Snapshot::GetRoot(Local<String> property, const AccessorInfo& info
 Handle<Value> Snapshot::GetTitle(Local<String> property, const AccessorInfo& info) {
   HandleScope scope;
   Local<Object> self = info.Holder();
+
   void* ptr = self->GetPointerFromInternalField(0);
   Handle<String> title = static_cast<HeapSnapshot*>(ptr)->GetTitle();
+
   return scope.Close(title);
 }
 
