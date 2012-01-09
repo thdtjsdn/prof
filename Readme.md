@@ -99,7 +99,6 @@ Get a node by it's ID:
 ``` javascript
 snapshot.getChild(1); // will return the root element
 ```
-
 ### Debugger
 
 To start the interactive debugger call:
@@ -115,6 +114,12 @@ Overwrite the default port and host with:
 You can preload heap snapshots for inspection with a comma-separated list:
 
     debugger --dumps=snapshot1.json,snapshot2.json
+
+## Caveats
+
+Binding functions like `getSnapshot()` which take a variable `index` or `id` causing a segmentation fault when called with an invalid reference.
+
+This module is early alpha. Many of the documented interfaces aren't even implemented yet as this README.md is developed with principle of [RDD](http://tom.preston-werner.com/2010/08/23/readme-driven-development.html).
 
 ## Development
 
