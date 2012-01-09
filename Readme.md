@@ -195,3 +195,17 @@ This project is versioned with the help of the [Semantic Versioning Specificatio
 * Bugs: https://github.com/goldjunge/node-profiling/issues
 
 This project uses [Semantic Versioning](http://semver.org) & [git flow](http://nvie.com/posts/a-successful-git-branching-model/) with the help of [git-flow](https://github.com/nvie/gitflow)
+
+## Todos
+
+* support cli options
+* implement remote repl for snapshot interaction
+* refactor preloading of dumps
+* implement snapshot header handling
+* refactor protocol code of socket handler
+* implement remote connection to node process in debug mode
+* implement cpu profiling
+* implement interactive console
+* implement breakpoints
+* generate docs (man?)
+* generate site
