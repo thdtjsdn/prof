@@ -14,6 +14,45 @@ This project is mainly inspired by three modules:
 
 ### Profiler
 
+Heap profiling is exposed via the `heap` object and enables you to take snapshots and manage the snapshosts. The `heap` exposes the interface implemented in the v8 [HeapProfiler](https://github.com/v8/v8/blob/master/src/heap-profiler.cc).
+
+How a snapshot is structured:
+
+``` javascript
+{ uid: <NUMBER>,
+  root: <NODE>,
+  title: <STRING>,
+  type: <STRING>,
+  nodes: <STRING>,
+  delete: [Function: delete],
+  getNode: [Function: getNode],
+  getNodeById: [Function: getNodeById],
+  serialize: [Function: serialize]
+}
+```
+
+Take a snapshot of the current process:
+``` javascript
+var heap = require('profiler').heap;
+
+var snap = heap.takeSnapshot('a-meaningful-name');
+```
+
+Serialize a snapshot as JSON into a file:
+``` javascript
+snap.serialize('/tmp/snapshot.json');
+```
+
+Delete one snapshot:
+``` javascript
+snap.delete();
+```
+
+Delete all snapshots:
+``` javascript
+heap.deleteAllSnapshots();
+```
+
 ### Debugger
 
 ## Development
