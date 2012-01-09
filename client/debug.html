@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="/inspector/goToLineDialog.css">
+    <link rel="stylesheet" type="text/css" href="/inspector/inspector.css">
+    <link rel="stylesheet" type="text/css" href="/inspector/inspectorCommon.css">
+    <link rel="stylesheet" type="text/css" href="/inspector/inspectorSyntaxHighlight.css">
+    <link rel="stylesheet" type="text/css" href="/inspector/helpScreen.css">
+    <link rel="stylesheet" type="text/css" href="/inspector/popover.css">
+    <script type="text/javascript" src="/inspector/utilities.js"></script>
+    <script type="text/javascript" src="/inspector/BinarySearch.js"></script>
+    <script type="text/javascript" src="/inspector/treeoutline.js"></script>
+    <script type="text/javascript" src="/inspector/inspector.js"></script>
+    <script type="text/javascript" src="/inspector/UIUtils.js"></script>
+    <script type="text/javascript" src="/inspector/InspectorBackend.js"></script>
+    <script type="text/javascript" src="/inspector/InspectorBackendStub.js"></script>
+    <script type="text/javascript" src="/inspector/ExtensionRegistryStub.js"></script>
+    <script type="text/javascript" src="/inspector/InspectorFrontendAPI.js"></script>
+    <script type="text/javascript" src="/inspector/Object.js"></script>
+    <script type="text/javascript" src="/inspector/Settings.js"></script>
+    <script type="text/javascript" src="/inspector/InspectorFrontendHostStub.js"></script>
+    <script type="text/javascript" src="/inspector/Checkbox.js"></script>
+    <script type="text/javascript" src="/inspector/ContextMenu.js"></script>
+    <script type="text/javascript" src="/inspector/SoftContextMenu.js"></script>
+    <script type="text/javascript" src="/inspector/KeyboardShortcut.js"></script>
+    <script type="text/javascript" src="/inspector/TextPrompt.js"></script>
+    <script type="text/javascript" src="/inspector/Popover.js"></script>
+    <script type="text/javascript" src="/inspector/Placard.js"></script>
+    <script type="text/javascript" src="/inspector/View.js"></script>
+    <script type="text/javascript" src="/inspector/TabbedPane.js"></script>
+    <script type="text/javascript" src="/inspector/Drawer.js"></script>
+    <script type="text/javascript" src="/inspector/ConsoleModel.js"></script>
+    <script type="text/javascript" src="/inspector/ConsoleMessage.js"></script>
+    <script type="text/javascript" src="/inspector/ConsoleView.js"></script>
+    <script type="text/javascript" src="/inspector/Panel.js"></script>
+    <script type="text/javascript" src="/inspector/InspectorView.js"></script>
+    <script type="text/javascript" src="/inspector/AdvancedSearchController.js"></script>
+    <script type="text/javascript" src="/inspector/TimelineGrid.js"></script>    
+    <script type="text/javascript" src="/inspector/Resource.js"></script>
+    <script type="text/javascript" src="/inspector/CSSStyleModel.js"></script>
+    <script type="text/javascript" src="/inspector/NetworkManager.js"></script>
+    <script type="text/javascript" src="/inspector/NetworkLog.js"></script>
+    <script type="text/javascript" src="/inspector/ResourceTreeModel.js"></script>
+    <script type="text/javascript" src="/inspector/ResourceUtils.js"></script>
+    <script type="text/javascript" src="/inspector/ResourceCategory.js"></script>
+    <script type="text/javascript" src="/inspector/TimelineManager.js"></script>
+    <script type="text/javascript" src="/inspector/Database.js"></script>
+    <script type="text/javascript" src="/inspector/DOMStorage.js"></script>
+    <script type="text/javascript" src="/inspector/DOMStorageItemsView.js"></script>
+    <script type="text/javascript" src="/inspector/DataGrid.js"></script>
+    <script type="text/javascript" src="/inspector/ShowMoreDataGridNode.js"></script>
+    <script type="text/javascript" src="/inspector/CookiesTable.js"></script>
+    <script type="text/javascript" src="/inspector/CookieItemsView.js"></script>
+    <script type="text/javascript" src="/inspector/ApplicationCacheModel.js"></script>
+    <script type="text/javascript" src="/inspector/ApplicationCacheItemsView.js"></script>
+    <script type="text/javascript" src="/inspector/Script.js"></script>
+    <script type="text/javascript" src="/inspector/SidebarPane.js"></script>
+    <script type="text/javascript" src="/inspector/ElementsTreeOutline.js"></script>
+    <script type="text/javascript" src="/inspector/DOMPresentationUtils.js"></script>
+    <script type="text/javascript" src="/inspector/SidebarTreeElement.js"></script>
+    <script type="text/javascript" src="/inspector/Section.js"></script>
+    <script type="text/javascript" src="/inspector/PropertiesSection.js"></script>
+    <script type="text/javascript" src="/inspector/RemoteObject.js"></script>
+    <script type="text/javascript" src="/inspector/ObjectPropertiesSection.js"></script>
+    <script type="text/javascript" src="/inspector/ObjectPopoverHelper.js"></script>
+    <script type="text/javascript" src="/inspector/BreakpointsSidebarPane.js"></script>
+    <script type="text/javascript" src="/inspector/DOMBreakpointsSidebarPane.js"></script>
+    <script type="text/javascript" src="/inspector/CallStackSidebarPane.js"></script>
+    <script type="text/javascript" src="/inspector/ScopeChainSidebarPane.js"></script>
+    <script type="text/javascript" src="/inspector/WatchExpressionsSidebarPane.js"></script>
+    <script type="text/javascript" src="/inspector/WorkersSidebarPane.js"></script>
+    <script type="text/javascript" src="/inspector/MetricsSidebarPane.js"></script>
+    <script type="text/javascript" src="/inspector/PropertiesSidebarPane.js"></script>
+    <script type="text/javascript" src="/inspector/EventListenersSidebarPane.js"></script>
+    <script type="text/javascript" src="/inspector/Color.js"></script>
+    <script type="text/javascript" src="/inspector/CSSCompletions.js"></script>
+    <script type="text/javascript" src="/inspector/CSSKeywordCompletions.js"></script>
+    <script type="text/javascript" src="/inspector/StylesSidebarPane.js"></script>
+    <script type="text/javascript" src="/inspector/PanelEnablerView.js"></script>
+    <script type="text/javascript" src="/inspector/StatusBarButton.js"></script>
+    <script type="text/javascript" src="/inspector/ElementsPanel.js"></script>
+    <script type="text/javascript" src="/inspector/NetworkPanel.js"></script>
+    <script type="text/javascript" src="/inspector/InjectedFakeWorker.js"></script>
+    <script type="text/javascript" src="/inspector/TextViewer.js"></script>
+    <script type="text/javascript" src="/inspector/SourceFrame.js"></script>
+    <script type="text/javascript" src="/inspector/ResourceView.js"></script>
+    <script type="text/javascript" src="/inspector/JavaScriptOutlineDialog.js"></script>
+    <script type="text/javascript" src="/inspector/JavaScriptSourceFrame.js"></script>
+    <script type="text/javascript" src="/inspector/SplitView.js"></script>
+    <script type="text/javascript" src="/inspector/TabbedEditorContainer.js"></script>
+    <script type="text/javascript" src="/inspector/ScriptsPanel.js"></script>
+    <script type="text/javascript" src="/inspector/ScriptsNavigator.js"></script>
+    <script type="text/javascript" src="/inspector/ResourcesPanel.js"></script>
+    <script type="text/javascript" src="/inspector/ProfilesPanel.js"></script>
+    <script type="text/javascript" src="/inspector/ConsolePanel.js"></script>
+    <script type="text/javascript" src="/inspector/ExtensionAPI.js"></script>
+    <script type="text/javascript" src="/inspector/ExtensionAuditCategory.js"></script>
+    <script type="text/javascript" src="/inspector/ExtensionServer.js"></script>
+    <script type="text/javascript" src="/inspector/ExtensionPanel.js"></script>
+    <script type="text/javascript" src="/inspector/AuditsPanel.js"></script>
+    <script type="text/javascript" src="/inspector/AuditResultView.js"></script>
+    <script type="text/javascript" src="/inspector/AuditLauncherView.js"></script>
+    <script type="text/javascript" src="/inspector/AuditRules.js"></script>
+    <script type="text/javascript" src="/inspector/AuditCategories.js"></script>
+    <script type="text/javascript" src="/inspector/AuditFormatters.js"></script>
+    <script type="text/javascript" src="/inspector/NetworkItemView.js"></script>
+    <script type="text/javascript" src="/inspector/EmptyView.js"></script>
+    <script type="text/javascript" src="/inspector/ResourceHeadersView.js"></script>
+    <script type="text/javascript" src="/inspector/ResourceCookiesView.js"></script>
+    <script type="text/javascript" src="/inspector/ResourceTimingView.js"></script>
+    <script type="text/javascript" src="/inspector/ResourceJSONView.js"></script>
+    <script type="text/javascript" src="/inspector/ResourceHTMLView.js"></script>
+    <script type="text/javascript" src="/inspector/ResourceResponseView.js"></script>
+    <script type="text/javascript" src="/inspector/ResourcePreviewView.js"></script>
+    <script type="text/javascript" src="/inspector/ScriptFormatter.js"></script>
+    <script type="text/javascript" src="/inspector/DOMSyntaxHighlighter.js"></script>
+    <script type="text/javascript" src="/inspector/TextEditorModel.js"></script>
+    <script type="text/javascript" src="/inspector/TextEditorHighlighter.js"></script>
+    <script type="text/javascript" src="/inspector/SourceTokenizer.js"></script>
+    <script type="text/javascript" src="/inspector/SourceCSSTokenizer.js"></script>
+    <script type="text/javascript" src="/inspector/SourceHTMLTokenizer.js"></script>
+    <script type="text/javascript" src="/inspector/SourceJavaScriptTokenizer.js"></script>
+    <script type="text/javascript" src="/inspector/FontView.js"></script>
+    <script type="text/javascript" src="/inspector/ImageView.js"></script>
+    <script type="text/javascript" src="/inspector/DatabaseTableView.js"></script>
+    <script type="text/javascript" src="/inspector/DatabaseQueryView.js"></script>
+    <script type="text/javascript" src="/inspector/ProfileLauncherView.js"></script>
+    <script type="text/javascript" src="/inspector/ProfileDataGridTree.js"></script>
+    <script type="text/javascript" src="/inspector/BottomUpProfileDataGridTree.js"></script>
+    <script type="text/javascript" src="/inspector/TopDownProfileDataGridTree.js"></script>
+    <script type="text/javascript" src="/inspector/ProfileView.js"></script>
+    <script type="text/javascript" src="/inspector/CSSSelectorProfileView.js"></script>
+    <script type="text/javascript" src="/inspector/PartialQuickSort.js"></script>
+    <script type="text/javascript" src="/inspector/HeapSnapshot.js"></script>
+    <script type="text/javascript" src="/inspector/HeapSnapshotProxy.js"></script>
+    <script type="text/javascript" src="/inspector/HeapSnapshotWorkerDispatcher.js"></script>
+    <script type="text/javascript" src="/inspector/DetailedHeapshotGridNodes.js"></script>
+    <script type="text/javascript" src="/inspector/DetailedHeapshotView.js"></script>
+    <script type="text/javascript" src="/inspector/DebuggerModel.js"></script>
+    <script type="text/javascript" src="/inspector/DebuggerPresentationModel.js"></script>
+    <script type="text/javascript" src="/inspector/BreakpointManager.js"></script>
+    <script type="text/javascript" src="/inspector/UISourceCode.js"></script>
+    <script type="text/javascript" src="/inspector/ContentProviders.js"></script>
+    <script type="text/javascript" src="/inspector/RawSourceCode.js"></script>
+    <script type="text/javascript" src="/inspector/CompilerSourceMapping.js"></script>
+    <script type="text/javascript" src="/inspector/ScriptsSearchScope.js"></script>
+    <script type="text/javascript" src="/inspector/DOMAgent.js"></script>
+    <script type="text/javascript" src="/inspector/TimelineAgent.js"></script>
+    <script type="text/javascript" src="/inspector/TimelinePanel.js"></script>
+    <script type="text/javascript" src="/inspector/TimelineOverviewPane.js"></script>
+    <script type="text/javascript" src="/inspector/TestController.js"></script>
+    <script type="text/javascript" src="/inspector/HelpScreen.js"></script>
+    <script type="text/javascript" src="/inspector/GoToLineDialog.js"></script>
+    <script type="text/javascript" src="/inspector/SettingsScreen.js"></script>
+    <script type="text/javascript" src="/inspector/ShortcutsScreen.js"></script>
+    <script type="text/javascript" src="/inspector/HAREntry.js"></script>
+    <script type="text/javascript" src="/inspector/CookieParser.js"></script>
+    <script type="text/javascript" src="/inspector/Toolbar.js"></script>
+    <script type="text/javascript" src="/inspector/SearchController.js"></script>
+    <script type="text/javascript" src="/inspector/WorkerManager.js"></script>
+    <script type="text/javascript" src="/inspector/UserMetrics.js"></script>
+    <script type="text/javascript" src="/inspector/JavaScriptContextManager.js"></script>
+    <script type="text/javascript" src="/inspector/HandlerRegistry.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="/overrides.js"></script>
+</head>
+<body class="detached" id="-webkit-web-inspector">
+    <div id="toolbar">
+        <div class="toolbar-item close-left"><button id="close-button-left"></button></div>
+        <div id="toolbar-controls">
+            <div class="toolbar-item"><button id="toolbar-dropdown-arrow" class="toolbar-label">&raquo;</button></div>
+            <div class="toolbar-item hidden" id="search-results-matches"></div>
+            <div class="toolbar-item toolbar-search-item"><input id="search" type="search" incremental results="0"><div id="search-toolbar-label" class="toolbar-label"></div></div>
+            <div class="toolbar-item close-right"><button id="close-button-right"></button></div>
+        </div>
+    </div>
+    <div id="main">
+        <div id="main-status-bar" class="status-bar"><div id="anchored-status-bar-items"><div id="counters"><div id="error-warning-count" class="hidden"></div></div></div></div>
+    </div>
+    <div id="drawer"></div>
+</body>
+</html>
