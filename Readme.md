@@ -6,9 +6,9 @@ The debugger is there to inspect taken snapshots visually, or interact with your
 
 This project is mainly inspired by three modules:
 
-[node-inspector](https://github.com/dannycoates/node-inspector)
-[v8-profiler](https://github.com/dannycoates/v8-profiler)
-[node-heap-dump](https://github.com/davepacheco/node-heap-dump)
+* [node-inspector](https://github.com/dannycoates/node-inspector)
+* [v8-profiler](https://github.com/dannycoates/v8-profiler)
+* [node-heap-dump](https://github.com/davepacheco/node-heap-dump)
 
 ## API
 
