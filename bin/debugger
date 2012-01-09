@@ -1,0 +1,29 @@
+#!/usr/bin/env node
+
+var fs      = require('fs');
+var connect = require('connect');
+var io      = require('socket.io');
+
+var debug   = require('../lib/handler/debug');
+var socket  = require('../lib/handler/socket');
+var static  = require('../lib/middleware/static');
+
+function route(app) {
+  app.get(/^\/debug/, debug.connect());
+}
+
+var srv = connect.createServer(
+  connect.router(route),
+  static.connect({}),
+  connect.static('client')
+);
+
+io = io.listen(srv);
+
+io.set('log level', 1);
+io.set('transports', [ 'websocket' ]);
+io.sockets.on('connection', socket.handler());
+
+srv.listen(1337, 'localhost', function() {
+  console.log('Server running...');
+});
