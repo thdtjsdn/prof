@@ -20,6 +20,10 @@ This project is mainly inspired by three modules:
 
 ### Setup
 
+To build the [node addon](http://nodejs.org/docs/latest/api/addons.html) and install dependencies run:
+
+    make
+
 ### Testing
 
 Tests are written with [Vows](http://vowsjs.org/) and are limited to the node code. To run all tests:
