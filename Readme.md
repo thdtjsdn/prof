@@ -32,23 +32,28 @@ How a snapshot is structured:
 ```
 
 Take a snapshot of the current process:
+
 ``` javascript
 var heap = require('profiler').heap;
 
 var snap = heap.takeSnapshot('a-meaningful-name');
+
 ```
 
 Serialize a snapshot as JSON into a file:
+
 ``` javascript
 snap.serialize('/tmp/snapshot.json');
 ```
 
 Delete one snapshot:
+
 ``` javascript
 snap.delete();
 ```
 
 Delete all snapshots:
+
 ``` javascript
 heap.deleteAllSnapshots();
 ```
