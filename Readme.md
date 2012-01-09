@@ -1,4 +1,4 @@
-# NodeProfiling
+# NodeProfiling [![Build Status](https://secure.travis-ci.org/goldjunge/node-profiling.png)](http://travis-ci.org/goldjunge/node-profiling)
 
 Profile, debug, optimize and understand node applications. With the help of native bindings to the [v8-profiler](http://code.google.com/p/v8/wiki/V8Profiler) you're able to take snapshosts of the heap, profile CPU usage and debug your code with breakpoints while running.
 
