@@ -102,6 +102,20 @@ snapshot.getChild(1); // will return the root element
 
 ### Debugger
 
+To start the interactive debugger call:
+
+    debugger
+
+Per default the debugger will start on [http://localhost:1337/debug](http://localhost:1337/debug).
+
+Overwrite the default port and host with:
+
+    debugger --host=0.0.0.0 --port=9000
+
+You can preload heap snapshots for inspection with a comma-separated list:
+
+    debugger --dumps=snapshot1.json,snapshot2.json
+
 ## Development
 
 ### Setup
