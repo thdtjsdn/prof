@@ -11,10 +11,10 @@ var static    = require('../lib/middleware/static');
 
 var argv = optimist
   .usage('Starts visual debugger on HTTP\nUsage: $0 --host localhost --port 1337')
-  .options('host',  { alias: 'H', default: 'localhost', describe: 'Local interface to bind on' })
-  .options('port',  { alias: 'P', default: 1337, describe: 'Local port to bind on' })
-  .options('dumps', { alias: 'D', default: '', describe: 'Local port to bind on' })
-  .options('help',  { alias: 'h', describe: 'Shows help message' })
+  .options('host',      { alias: 'H', default: 'localhost', describe: 'Local interface to bind on' })
+  .options('port',      { alias: 'P', default: 1337, describe: 'Local port to bind on' })
+  .options('snapshots', { alias: 'S', default: '', describe: 'Comma separated list of snapshot files' })
+  .options('help',      { alias: 'h', describe: 'Shows help message' })
   .argv;
 
 if (argv.help) {
@@ -36,7 +36,7 @@ io = io.listen(srv);
 
 io.set('log level', 1);
 io.set('transports', [ 'websocket' ]);
-io.sockets.on('connection', socket.handler({ dumps: argv.dumps }));
+io.sockets.on('connection', socket.handler({ snapshots: argv.snapshots }));
 
 srv.listen(argv.port, argv.host, function() {
   console.log('Server running on %s:%d', argv.host, argv.port);

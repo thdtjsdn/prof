@@ -113,7 +113,7 @@ Overwrite the default port and host with:
 
 You can preload heap snapshots for inspection with a comma-separated list:
 
-    debugger --dumps=snapshot1.json,snapshot2.json
+    debugger --snapshots=snapshot1.json,snapshot2.json
 
 ## Caveats
 
