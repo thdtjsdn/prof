@@ -203,7 +203,6 @@ This project uses [Semantic Versioning](http://semver.org) & [git flow](http://n
 
 ## Todos
 
-* support cli options
 * implement remote repl for snapshot interaction
 * refactor preloading of dumps
 * implement snapshot header handling
