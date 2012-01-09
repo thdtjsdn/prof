@@ -112,7 +112,9 @@ To build the [node addon](http://nodejs.org/docs/latest/api/addons.html) and ins
 
 ### Testing
 
-Tests are written with [Vows](http://vowsjs.org/) and are limited to the node code. To run all tests:
+Tests are written with [Vows](http://vowsjs.org/) and are limited to the node code. CI is covered by [travis-ci](http://about.travis-ci.org/) and the current status is visible [here](http://travis-ci.org/goldjunge/node-profiling).
+
+To run all tests:
 
     make test
 
