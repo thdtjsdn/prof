@@ -20,6 +20,12 @@ This project is mainly inspired by three modules:
 
 ### Setup
 
+### Testing
+
+Tests are written with [Vows](http://vowsjs.org/) and are limited to the node code. To run all tests:
+
+    make test
+
 ### Branching
 
 This repository is organized and maintained with the help of [gitflow](https://github.com/nvie/gitflow). Developers are encouraged to use it when working with this repository.
