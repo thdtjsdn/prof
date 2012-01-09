@@ -16,14 +16,15 @@ This project is mainly inspired by three modules:
 
 Heap profiling is exposed via the `heap` object and enables you to take snapshots and manage the snapshosts. The `heap` exposes the interface implemented in the v8 [HeapProfiler](https://github.com/v8/v8/blob/master/src/heap-profiler.cc).
 
-How a snapshot is structured:
+Structure of a snapshot:
 
 ``` javascript
-{ uid: <NUMBER>,
+{
+  uid: <NUMBER>, // internally generated id
   root: <NODE>,
-  title: <STRING>,
-  type: <STRING>,
-  nodes: <STRING>,
+  title: <STRING>, // empty if not passed as argument to takeSnapshot()
+  type: <STRING>, // "Full" is the default and only option
+  nodes: <STRING>, // amount of nodes
   delete: [Function: delete],
   getNode: [Function: getNode],
   getNodeById: [Function: getNodeById],
@@ -36,26 +37,67 @@ Take a snapshot of the current process:
 ``` javascript
 var heap = require('profiler').heap;
 
-var snap = heap.takeSnapshot('a-meaningful-name');
+var snapshot = heap.takeSnapshot('a-meaningful-name');
 
 ```
 
 Serialize a snapshot as JSON into a file:
 
 ``` javascript
-snap.serialize('/tmp/snapshot.json');
+snapshot.serialize('/tmp/snapshot.json');
 ```
 
 Delete one snapshot:
 
 ``` javascript
-snap.delete();
+snapshot.delete();
 ```
 
 Delete all snapshots:
 
 ``` javascript
 heap.deleteAllSnapshots();
+```
+
+Get the current `count` of snapshots:
+
+``` javascript
+heap.snapshotCount();
+```
+
+Get/Find a snapshot:
+
+``` javascript
+// get by index
+heap.getSnapshot(0);
+
+// find by UID
+heap.findSnapshot(1);
+```
+
+A snapshot consists of many nodes, starting with the `root` node which is exposed as top-level property. The structure of a node:
+
+``` javascript
+{
+  id: <NUMBER>, // internal ID
+  ptr: <NUMBER>, // pointer address
+  type: <STRING>, // type of the node like: 'Object', 'String', 'Array'...
+  dominatorNode: <NODE>, // This is the node that participates in every path from the snapshot root to the current node
+  name: '', // Depending on node's type this can be the name of the constructor (for objects), the name of the function (for closures), string value, or an empty string (for compiled code)
+  approximateRetainedSize: <NUMBER>, // imprecise guess on the retainedsize of the node
+  retainersCount: <NUMBER>, // Retainer nodes count of the node
+  childrenCount: <NUMBER>, // count of children
+  size: <NUMBER>, // node's own size in bytes
+  getChild: [Function: getChild], // Retrieves a child by index
+  getRetainer: [Function: getRetainer], // Returns a retainer by index
+  getRetainedSize: [Function: getRetainedSize] // That is, self + sizes of the objects that are reachable only from this object. In other words, the size of memory that will be reclaimed having this node collected. This call returns an accurate number of approximateRetainedSize
+}
+```
+
+Get a node by it's ID:
+
+``` javascript
+snapshot.getChild(1); // will return the root element
 ```
 
 ### Debugger
