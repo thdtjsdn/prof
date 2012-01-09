@@ -1,5 +1,15 @@
 # NodeProfiling
 
+Profile, debug, optimize and understand node applications. With the help of native bindings to the [v8-profiler](http://code.google.com/p/v8/wiki/V8Profiler) you're able to take snapshosts of the heap, profile CPU usage and debug your code with breakpoints while running.
+
+The debugger is there to inspect taken snapshots visually, or interact with your remote processes in a convenient way. It's built upon the [WebInspector](http://trac.webkit.org/wiki/WebInspector) front-end that is shipped with most [WebKit](http://www.webkit.org/) variants.
+
+This project is mainly inspired by three modules:
+
+[node-inspector](https://github.com/dannycoates/node-inspector)
+[v8-profiler](https://github.com/dannycoates/v8-profiler)
+[node-heap-dump](https://github.com/davepacheco/node-heap-dump)
+
 ## API
 
 ### Profiler
