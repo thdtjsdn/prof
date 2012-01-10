@@ -99,6 +99,28 @@ Get a node by it's ID:
 ``` javascript
 snapshot.getChild(1); // will return the root element
 ```
+
+### Repl
+
+Hook into running processes and take snapshots.
+
+``` javascript
+var repl = require('repl');
+
+repl.createRepl();
+```
+
+The repl listens on a `signal` by default `SIGUSR2` to start and stop the debug server.
+
+You can change the `event`, `host` and `port` by passing a config object:
+
+
+``` javascript
+var repl = require('repl');
+
+repl.createRepl({ event: 'SIGUSR1', host: '0.0.0.0', port: 11111 });
+```
+
 ### Debugger
 
 To start the interactive debugger call:
