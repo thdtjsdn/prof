@@ -1,7 +1,7 @@
 {
   "name": "prof",
   "description": "Profile, debug, optimize and understand node applications.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Alexander Simmerl <a.simmerl@googlemail.com> (https://goldjunge.github.com)",
   "homepage": "http://goldjunge.github.com/prof",
   "bugs": "https://github.com/goldjunge/prof/issues",
