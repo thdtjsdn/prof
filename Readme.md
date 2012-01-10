@@ -204,7 +204,6 @@ This project uses [Semantic Versioning](http://semver.org) & [git flow](http://n
 ## Todos
 
 * implement remote repl for snapshot interaction
-* implement snapshot store
 * implement snapshot header handling
 * implement remote connection to node process in debug mode
 * implement cpu profiling
