@@ -1,5 +1,5 @@
-#include "graph_edge.h"
-#include "graph_node.h"
+#include "heap-graph-edge.h"
+#include "heap-graph-node.h"
 
 using namespace v8;
 

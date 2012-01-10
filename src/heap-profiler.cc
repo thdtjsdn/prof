@@ -1,7 +1,7 @@
 #include <v8.h>
 #include <v8-profiler.h>
 #include <node.h>
-#include "snapshot.h"
+#include "heap-snapshot.h"
 
 using namespace v8;
 using namespace node;

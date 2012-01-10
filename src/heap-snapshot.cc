@@ -1,6 +1,6 @@
 #include <unistd.h>
-#include "snapshot.h"
-#include "graph_node.h"
+#include "heap-snapshot.h"
+#include "heap-graph-node.h"
 
 class FileOutputStream : public OutputStream {
   private:

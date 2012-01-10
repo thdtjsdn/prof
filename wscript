@@ -15,8 +15,8 @@ def build(ctx):
   t = ctx.new_task_gen("cxx", "shlib", "node_addon")
   t.target = "profiler"
   t.source = """
-    src/graph_edge.cc
-    src/graph_node.cc
-    src/profiler.cc
-    src/snapshot.cc
+    src/heap-graph-edge.cc
+    src/heap-graph-node.cc
+    src/heap-profiler.cc
+    src/heap-snapshot.cc
   """
