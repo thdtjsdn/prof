@@ -1,10 +1,10 @@
 {
   "name": "prof",
   "description": "Profile, debug, optimize and understand node applications.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Alexander Simmerl <a.simmerl@googlemail.com> (https://goldjunge.github.com)",
-  "homepage": "https://github.com/goldjunge/node-profiler",
-  "bugs": "https://github.com/goldjunge/node-profiling/issues",
+  "homepage": "http://goldjunge.github.com/prof",
+  "bugs": "https://github.com/goldjunge/prof/issues",
   "keywords": [
     "profiler",
     "heap",
@@ -14,7 +14,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/goldjunge/node-profiler.git"
+    "url": "git://github.com/goldjunge/prof.git"
   },
   "directories": {
     "example": "./example",
