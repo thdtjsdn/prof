@@ -1,4 +1,4 @@
-# NodeProfiling [![Build Status](https://secure.travis-ci.org/goldjunge/node-profiling.png)](http://travis-ci.org/goldjunge/node-profiling)
+# Prof [![Build Status](https://secure.travis-ci.org/goldjunge/prof.png)](http://travis-ci.org/goldjunge/prof)
 
 Profile, debug, optimize and understand node applications. With the help of native bindings to the [v8-profiler](http://code.google.com/p/v8/wiki/V8Profiler) you're able to take snapshosts of the heap, profile CPU usage and debug your code with breakpoints while running.
 
@@ -131,7 +131,7 @@ To build the [node addon](http://nodejs.org/docs/latest/api/addons.html) and ins
 
 ### Testing
 
-Tests are written with [Vows](http://vowsjs.org/) and are limited to the node code. CI is covered by [travis-ci](http://about.travis-ci.org/) and the current status is visible [here](http://travis-ci.org/goldjunge/node-profiling).
+Tests are written with [Vows](http://vowsjs.org/) and are limited to the node code. CI is covered by [travis-ci](http://about.travis-ci.org/) and the current status is visible [here](http://travis-ci.org/goldjunge/prof).
 
 To run all tests:
 
@@ -180,24 +180,24 @@ This project is versioned with the help of the [Semantic Versioning Specificatio
 
 **normal**
 
-1. [Fork](http://help.github.com/forking/) NodeProfiling
+1. [Fork](http://help.github.com/forking/) Prof
 2. Create a topic branch `git checkout -b my_branch`
 3. Push to your branch `git push origin my_branch`
 4. Create a [Pull Request](http://help.github.com/pull-requests/) from your branch
 
 **git-flow**
 
-1. [Fork](http://help.github.com/forking/) NodeProfiling
+1. [Fork](http://help.github.com/forking/) Prof
 2. Create a feature `git flow feature start my-feature`
 3. Publish your featue `git flow feature publish my-feature`
 4. Create a [Pull Request](http://help.github.com/pull-requests/) from your branch
 
 ## Meta
 
-* Code: `git clone git@github.com:goldjunge/node-profiling.git`
-* Home: https://github.com/goldjunge/node-profiling
-* Docs: https://github.com/goldjunge/node-profiling
-* Bugs: https://github.com/goldjunge/node-profiling/issues
+* Code: `git clone git@github.com:goldjunge/prof.git`
+* Home: https://github.com/goldjunge/prof
+* Docs: https://github.com/goldjunge/prof
+* Bugs: https://github.com/goldjunge/prof/issues
 
 This project uses [Semantic Versioning](http://semver.org) & [git flow](http://nvie.com/posts/a-successful-git-branching-model/) with the help of [git-flow](https://github.com/nvie/gitflow)
 

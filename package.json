@@ -1,14 +1,12 @@
 {
-  "name": "profiler",
-  "description": "Heap and CPU profiling in nodejs.",
+  "name": "prof",
+  "description": "Profile, debug, optimize and understand node applications.",
   "version": "0.0.1",
   "author": "Alexander Simmerl <a.simmerl@googlemail.com> (https://goldjunge.github.com)",
   "homepage": "https://github.com/goldjunge/node-profiler",
   "bugs": "https://github.com/goldjunge/node-profiling/issues",
   "keywords": [
     "profiler",
-    "profiler",
-    "profiling",
     "heap",
     "cpu",
     "v8",
