@@ -1,0 +1,40 @@
+{
+  "name": "prof",
+  "description": "Profile, debug, optimize and understand node applications.",
+  "version": "0.0.1",
+  "author": "Alexander Simmerl <a.simmerl@googlemail.com> (https://goldjunge.github.com)",
+  "homepage": "https://github.com/goldjunge/node-profiler",
+  "bugs": "https://github.com/goldjunge/node-profiling/issues",
+  "keywords": [
+    "profiler",
+    "heap",
+    "cpu",
+    "v8",
+    "trace"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/goldjunge/node-profiler.git"
+  },
+  "directories": {
+    "example": "./example",
+    "lib": "./lib",
+    "src": "./src"
+  },
+  "man": [],
+  "main": "index",
+  "engines": {
+    "node": "~0.6.6"
+  },
+  "dependencies": {
+    "connect": "~1.8.5",
+    "optimist": "~0.3.1",
+    "socket.io": "~0.8.7"
+  },
+  "devDependencies": {
+    "vows": "~0.6.1"
+  },
+  "scripts": {
+    "test": "make test"
+  }
+}
